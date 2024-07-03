@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Details - Travel Diary</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Travel Diary</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="timeline.html">My Trips</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Trip Details -->
+    <div class="container trip-details-container py-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Trip Details</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="path/to/trip-image.jpg" class="img-fluid mb-3" alt="Trip Image">
+                    </div>
+                    <div class="col-md-6">
+                        <h4 id="tripTitle"></h4>
+                        <p><strong>Location:</strong> <span id="tripLocation"></span></p>
+                        <p><strong>Date:</strong> <span id="tripDate"></span></p>
+                        <p><strong>Description:</strong></p>
+                        <p id="tripDescription"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Retrieve trip details from localStorage (replace with actual backend storage)
+            const tripDetails = JSON.parse(localStorage.getItem('addedTrip'));
+
+            // Update trip details on the page
+            $('#tripTitle').text(tripDetails.title);
+            $('#tripLocation').text(tripDetails.location);
+            $('#tripDate').text(tripDetails.date);
+            $('#tripDescription').text(tripDetails.description);
+        });
+    </script>
+</body>
+</html>
